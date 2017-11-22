@@ -1,0 +1,19 @@
+<template>
+    <a click.delegate="gotoDetails()" href="#">
+    <div class="col-sm-6 col-md-3 card-container au-animate">
+        <div class="card" style="color:#fff">
+            <div if.bind="busy==false">
+                <b>${weatherInfo.title}</b>
+
+                <div class="content">
+                    Temperature: ${roundMe(weatherInfo.consolidated_weather[0].the_temp)} <br />
+                    Max Temp: ${roundMe(weatherInfo.consolidated_weather[0].max_temp)} <br />
+                    Min Temp: ${roundMe(weatherInfo.consolidated_weather[0].min_temp)}
+                
+                </div>
+            </div>
+            <div if.bind="busy==true">Loading...</div>
+        </div>
+    </div>
+    </a>
+</template>

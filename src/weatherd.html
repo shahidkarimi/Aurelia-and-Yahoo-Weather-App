@@ -1,0 +1,19 @@
+<template>
+    <br />
+    <div class="container">
+        <div class="col-md-12" if.bind="weatherInfo.consolidated_weather.length > 0">
+            <div class="row"><h1>${weatherInfo.title}</h1></div>
+            <div class="row">
+                <div repeat.for="c of weatherInfo.consolidated_weather" class="col-md-3" style="border:1px solid gray; margin:3px;">
+                   <div class="col-md-4">Date</div><div class="col-md-8">${c.applicable_date}</div>
+                   <div class="col-md-4">Day</div><div class="col-md-8">${getDayOfWeek(c.applicable_date)}</div>
+                   <div class="col-md-4">Min</div><div class="col-md-8">${roundMe(c.min_temp)}</div>
+                   <div class="col-md-4">Max</div><div class="col-md-8">${roundMe(c.max_temp)}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12" if.bind="busy">
+            Please wait...
+        </div>
+    </div>
+</template>
